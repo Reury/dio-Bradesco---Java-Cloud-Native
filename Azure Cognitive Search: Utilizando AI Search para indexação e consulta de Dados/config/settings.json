@@ -1,0 +1,33 @@
+{
+  "search_settings": {
+    "default_top": 50,
+    "max_results": 1000,
+    "highlight_pre_tag": "<mark>",
+    "highlight_post_tag": "</mark>",
+    "facet_count": 10
+  },
+  "indexing_settings": {
+    "batch_size": 100,
+    "max_retries": 3,
+    "retry_delay": 2,
+    "parallel_threads": 4
+  },
+  "cognitive_skills": {
+    "entity_extraction": true,
+    "key_phrase_extraction": true,
+    "sentiment_analysis": true,
+    "language_detection": true,
+    "ocr_enabled": true
+  },
+  "document_processing": {
+    "supported_formats": ["pdf", "docx", "txt", "json", "csv"],
+    "max_file_size_mb": 16,
+    "extract_metadata": true,
+    "preserve_formatting": false
+  },
+  "logging": {
+    "level": "INFO",
+    "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    "file_path": "logs/application.log"
+  }
+}
