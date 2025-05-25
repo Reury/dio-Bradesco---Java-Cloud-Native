@@ -1,0 +1,48 @@
+# This directory contains code samples written in Python that demonstrate the use of OpenAI tools and Copilot functionalities.
+
+# Sample 1: Text Completion using OpenAI API
+import openai
+
+openai.api_key = 'your-api-key'
+
+response = openai.Completion.create(
+  engine="text-davinci-003",
+  prompt="Once upon a time in a land far, far away,",
+  max_tokens=50
+)
+
+print(response.choices[0].text.strip())
+
+# Sample 2: Image Generation using OpenAI API
+import openai
+
+openai.api_key = 'your-api-key'
+
+response = openai.Image.create(
+  prompt="A futuristic city skyline at sunset",
+  n=1,
+  size="1024x1024"
+)
+
+print(response['data'][0]['url'])
+
+# Sample 3: Using Copilot for Function Definition
+def fibonacci(n):
+    """Return the nth Fibonacci number."""
+    if n <= 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return fibonacci(n-1) + fibonacci(n-2)
+
+print(fibonacci(10))
+
+# Sample 4: Content Filtering Example
+def filter_content(text):
+    """Filter inappropriate content from the text."""
+    # Implement content filtering logic here
+    return text
+
+filtered_text = filter_content("Some potentially inappropriate content")
+print(filtered_text)

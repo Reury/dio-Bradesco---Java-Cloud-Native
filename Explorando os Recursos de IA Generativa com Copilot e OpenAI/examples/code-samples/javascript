@@ -1,0 +1,43 @@
+// This file contains JavaScript code samples demonstrating the use of OpenAI tools and Copilot functionalities. 
+
+// Sample 1: Basic Text Completion
+const { Configuration, OpenAIApi } = require("openai");
+
+const configuration = new Configuration({
+  apiKey: process.env.OPENAI_API_KEY,
+});
+const openai = new OpenAIApi(configuration);
+
+async function getCompletion(prompt) {
+  const response = await openai.createCompletion({
+    model: "text-davinci-003",
+    prompt: prompt,
+    max_tokens: 100,
+  });
+  console.log(response.data.choices[0].text);
+}
+
+getCompletion("Once upon a time in a land far, far away");
+
+// Sample 2: Image Generation
+async function generateImage(prompt) {
+  const response = await openai.createImage({
+    prompt: prompt,
+    n: 1,
+    size: "1024x1024",
+  });
+  console.log(response.data.data[0].url);
+}
+
+generateImage("A futuristic city skyline at sunset");
+
+// Sample 3: Using Chat Models
+async function chatWithModel(messages) {
+  const response = await openai.createChatCompletion({
+    model: "gpt-3.5-turbo",
+    messages: messages,
+  });
+  console.log(response.data.choices[0].message.content);
+}
+
+chatWithModel([{ role: "user", content: "What is the capital of France?" }]);
